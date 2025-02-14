@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container" >
+        <h2>Product Review Sentiment Analysis</h2>
+        <form method="post">
+            <textarea name="review" placeholder="Enter a review..." required></textarea>
+            <button type="submit">Analyze</button>
+        </form>
+        {% if sentiment %}
+            <p class="result">Sentiment: <strong>{{ sentiment }}</strong></p>
+        {% endif %}
+    </div>
+</body>
+</html>
+
+<style>
+    body {
+        font-family: Times;
+        background-size: cover;
+        text-align: center;
+        padding: 50px;
+        
+    }
+    
+    
+    .container {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        width: 50%;
+        margin: auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    textarea {
+        width: 80%;
+        height: 100px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    
+    button {
+        padding: 10px 20px;
+        background: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+    
+    button:hover {
+        background: #0056b3;
+    }
+    
+    .result {
+        margin-top: 20px;
+        font-size: 20px;
+        color: green;
+    }
+    
+    .error {
+        margin-top: 20px;
+        font-size: 18px;
+        color: red;
+    }
+    
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+    
+</style>
